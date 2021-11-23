@@ -1,0 +1,96 @@
+body {
+    background: url("assets/typing-bg-1920x1080.png") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Merriweather', serif;
+    color: white !important;
+}
+
+header {
+    padding: 5px 0;
+    margin-bottom: 20px;
+    position: sticky;
+    text-align: center;
+    font-family: 'Stoke', serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+.container {
+    margin: auto 80px;
+}
+
+.analytics-section .card {
+    margin: 0 10px;
+    color: black !important;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-right: none;
+    border-bottom: none;
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(6px);
+    /* box-shadow: 0px 50px 50px rgba(71,52,22, 0.4); */
+}
+
+.row {
+    align-items: center;
+}
+.row h6{
+    margin: 0;
+    padding: 0;
+}
+
+.scoreDown{
+    color: red;
+}
+.scoreUp{
+    color: green;
+}
+
+.content-section {
+    height: 180px;
+    overflow: hidden;
+    margin: 30px auto;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-right: none;
+    border-bottom: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+}
+
+.content-info {
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+.typing-section {
+    margin: 20px auto;
+}
+
+.typing-section input {
+    height: 60px;
+    width: 80%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+}
+.typing-section input::placeholder { 
+    color: rgba(60, 60, 60, 0.9);
+    text-align: center;
+}
+
+.buttons-section {
+    margin: 0 auto;
+}
+
+.icon-image {
+    height: 23px;
+}
+
+#certificateModal {
+    color: black !important;
+}
