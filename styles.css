@@ -48,7 +48,7 @@ header {
 }
 
 .content-section {
-    height: 180px;
+    height: 170px;
     overflow: hidden;
     margin: 30px auto;
     border-radius: 10px;
@@ -93,4 +93,18 @@ header {
 
 #certificateModal {
     color: black !important;
+}
+
+.active-word {
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.correctCharacter {
+    color: blue;
+}
+.wrongCharacter {
+    color: red;
 }

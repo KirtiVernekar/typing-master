@@ -11,7 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Stoke&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Stoke&family=Cinzel:wght@700&display=swap" rel="stylesheet">
     
     <link href="./styles.css" rel="stylesheet"/>
 
@@ -36,7 +36,7 @@
                                 <i class="bi bi-speedometer2"></i>
                                 <span>WPM</span>
                             </h5>
-                            <h2 class="card-text" id="wpm">100</h2>
+                            <h2 class="card-text" id="wpm"></h2>
                             <div class="row">
                                 <h6 class="col text-muted">Change</h6>
                                 <h6 class="col card-text-change" id="wpm-change">
@@ -53,7 +53,7 @@
                                 <i class="bi bi-hand-index"></i>
                                 <span>CPM</span>
                             </h5>
-                            <h2 class="card-text" id="cpm">200</h2>
+                            <h2 class="card-text" id="cpm"></h2>
                             <div class="row">
                                 <h6 class="col text-muted">Change</h6>
                                 <h6 class="col card-text-change" id="cpm-change">
@@ -71,7 +71,7 @@
                                 <img src="./assets/icons8-goal-50.png" class="icon-image"></img>
                                 <span>Accuracy</span>
                             </h5>
-                            <h2 class="col card-text" id="accuracy">90</h2>
+                            <h2 class="col card-text" id="accuracy"></h2>
                             <div class="row">
                                 <h6 class="col text-muted">Change</h6>
                                 <h6 class="col card-text-change" id="accuracy-change">
@@ -92,14 +92,14 @@
                             <i class="bi bi-stopwatch"></i>
                             <span id="cpm">Remaining</span>
                         </h5>
-                        <h2 class="card-text" id="timeLeft">100</h2>
+                        <h2 class="card-text" id="timeLeft"></h2>
                     </div>
                 </div>
             </div>
           </div>
         <div class="content-section">
             <p class="content-info">Use this content as reference for typing!</p>
-            <p class="content-info">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, dolorem! Repudiandae excepturi quos maxime, perferendis libero dolore tenetur mollitia soluta! Esse repellendus cupiditate ratione sunt nisi deserunt suscipit dignissimos!</p>
+            <p class="content-info" id="content"></p>
         </div>
         <div class="typing-section">
             <input type="text" placeholder="start typing..." id="input"/>
@@ -138,12 +138,13 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-
-    <script type="text/javascript" src="./dataModule.js"></script>
-    <script type="text/javascript" src="./uiModule.js"></script>
-    <script type="text/javascript" src="./certificateModule.js"></script>
-    <script type="text/javascript" src="./wordsModule.js"></script>
-    <script type="text/javascript" src="./eventsModule.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script type="text/javascript" src="./modules/dataModule.js"></script>
+    <script type="text/javascript" src="./modules/uiModule.js"></script>
+    <script type="text/javascript" src="./modules/certificateModule.js"></script>
+    <script type="text/javascript" src="./modules/wordsModule.js"></script>
+    <script type="text/javascript" src="./modules/eventsModule.js"></script>
     <script type="text/javascript" src="./script.js"></script>
 </body>
 </html>
