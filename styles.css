@@ -15,7 +15,7 @@ header {
     position: sticky;
     text-align: center;
     font-family: 'Stoke', serif;
-    background-color: rgba(119, 86, 86, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(2px);
 }
 
@@ -104,6 +104,7 @@ header {
 .form-input {
     margin-top: 10px;
     width: 100%;
+    border-radius: 5px;
 }
 
 .active-word {

@@ -125,7 +125,7 @@ const uiModule = (function(){
         },
 
         flagNameInput: function(){
-            DOMElements.nameInput.style.border = '2px solid red';
+            DOMElements.nameInput.style.border = '4px double red';
         },
 
         spacePressed: function(event){

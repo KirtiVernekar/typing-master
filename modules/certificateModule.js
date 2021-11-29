@@ -6,7 +6,6 @@ const certificateModule = (function(){
             let button = event.target;
             let level = button.getAttribute('level');
             let nameField = button.parentElement.previousElementSibling.children[1].children[0];
-            console.log(nameField);
             let username = nameField.value;
             let date = new Date();
 
