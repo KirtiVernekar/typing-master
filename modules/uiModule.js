@@ -8,11 +8,11 @@ const uiModule = (function(){
         cpmChange: document.getElementById('cpm-change'),
         accuracyChange: document.getElementById('accuracy-change'),
         textInput: document.getElementById('input'), 
-        nameInput: document.querySelector('.form-group'),
-        nameField: document.getElementById('name'),
-        content: document.getElementById('content'), 
+        formInput: document.querySelector('.form-group'),
+        nameInput: document.getElementById('name'),
+        content: document.getElementById('content'),
         activeWord: '',
-        modal: document.getElementById('certificateModal'),  //jQuery - $('#certificateModal')
+        modal: $('#certificateModal'),
         download: document.getElementById('download'),
     };
 
@@ -41,10 +41,36 @@ const uiModule = (function(){
         return array.join('');
     };
 
-    let userValue;
+    let correctValue, userValue;
     const returnCharClass = function(currentCharacter, index){
-        return (index < userValue.length) ? ((currentCharacter == userValue[index]) ? 'correctCharacter' : 'wrongCharacter') : '0'
+        return (index < userValue.length) ? ((currentCharacter == userValue[index]) ? 'correctCharacter' : 'wrongCharacter') : '0';
     };
+
+    const updateChange = function(value, changeElement){
+        let classToAdd, html;
+        [classToAdd, html] = (value >= 0) 
+                                ? ['col card-text-change scoreUp', '+' + value + ' <i class="bi bi-arrow-up"></i>'] 
+                                : ['col card-text-change scoreDown', value + ' <i class="bi bi-arrow-down"></i>'];
+
+        // if(changeElement == DOMElements.accuracyChange) {
+        //     changeElement.innerHTML = html + '%';
+        // } else {
+        //     changeElement.innerHTML = html;
+        // }
+        
+        changeElement.innerHTML = html;
+        changeElement.removeAttribute('class');
+        changeElement.className = classToAdd;
+
+        fadeElement(changeElement);
+    };
+
+    const fadeElement = function(element){
+        element.style.opacity = 1;
+        setTimeout(() => {
+            element.style.opacity = 0.8;
+        }, 100);
+    }
 
     return {
         getDOMElements: function(){
@@ -57,16 +83,37 @@ const uiModule = (function(){
         //indicator
         updateTimeLeft: function(timeRemaining){
             DOMElements.timeLeft.innerHTML = timeRemaining;
-            // console.log(timeRemaining);
         },
 
         //results
-        updateResults: function(){
-
+        updateResults: function(results){
+            DOMElements.wpm.innerHTML = results.wpm;
+            DOMElements.cpm.innerHTML = results.cpm;
+            DOMElements.accuracy.innerHTML = results.accuracy + '%';
+            // DOMElements.wpmChange.innerHTML = results.wpmChange;
+            // DOMElements.cpmChange.innerHTML = results.cpmChange;
+            // DOMElements.accuracyChange.innerHTML = results.accuracyChange + '%';
+            updateChange(results.wpmChange, DOMElements.wpmChange);
+            updateChange(results.cpmChange, DOMElements.cpmChange);
+            updateChange(results.accuracyChange, DOMElements.accuracyChange);
         },
         
-        fillModal: function(){},
-        showModal: function(){},
+        fillModal: function(wpm){
+            let level = (wpm > 50) ? 'Champion' : ((wpm > 20) ? 'Specialist' : 'Noob');
+            let html = `<div>
+                            <h5>You are a ${level}!</h5>
+                            <h5>Your typing speed is ${wpm} words per minute!</h5>
+                            <img src="assets/${level}.png" width="300" height="300" alt="${level}"/>
+                        </div>`;
+            
+            DOMElements.formInput.insertAdjacentHTML("beforebegin", html);
+
+            DOMElements.download.setAttribute('level', level);
+        },
+
+        showModal: function(){
+            DOMElements.modal.modal('show');
+        },
 
         //user input
         inputFocus: function(){
@@ -74,11 +121,11 @@ const uiModule = (function(){
         },
 
         isNameEmpty: function(){
-            return DOMElements.nameField.value == '';
+            return DOMElements.nameInput.value == '';
         },
 
         flagNameInput: function(){
-            DOMElements.nameField.style.border = '2px solid red';
+            DOMElements.nameInput.style.border = '2px solid red';
         },
 
         spacePressed: function(event){
@@ -119,17 +166,13 @@ const uiModule = (function(){
             activeWord.className = 'active-word';
 
             //format character
-            let correctValue = wordObject.value.correct;
+            correctValue = wordObject.value.correct;
             userValue = wordObject.value.user;
             let classes = Array.prototype.map.call(correctValue, returnCharClass);
-            
-            // activeWord = DOMElements.activeWord;
             let characters = activeWord.children;     //HTML collection
-
             for(let i=0; i < characters.length; i++){
                 characters[i].removeAttribute('class');
                 characters[i].className = classes[i];
-                // console.log();
             }
         },
 
@@ -143,10 +186,15 @@ const uiModule = (function(){
 
         //scroll active word to middle of content box
         scroll: function(){
-            let top1 = DOMElements.activeWord.offsetTop;
+            let activeWord = DOMElements.activeWord;
+            let top1 = activeWord.offsetTop;
             let top2 = DOMElements.content.offsetTop;
             let difference = top1 - top2;
-            DOMElements.activeWord.scrollTop = difference - 57;
+            DOMElements.content.scrollTop = difference - 60;
+            // console.log("scrolldiff",difference);
+            // console.log("scroll",DOMElements.content.scrollTop);
+            // DOMElements.content.scrollTo(0, difference)
         },
+        
     }
 })();

@@ -22,37 +22,61 @@ const eventsModule = (function(dataMod, uiMod, certificateMod, wordsMod){
             if(!dataMod.testStarted()){
                 dataMod.startTest();
 
-                let counter = setInterval(function(){
-                    dataMod.calculateWPM();
-                    dataMod.calculateCPM();
-                    dataMod.calculateAccuracy();
+                let timeCounter = setInterval(function(){
+                    let results = {};
 
-                    uiMod.updateResults();
+                    [results.wpm, results.wpmChange] = dataMod.calculateWPM();
+                    [results.cpm, results.cpmChange] = dataMod.calculateCPM();
+                    [results.accuracy, results.accuracyChange] = dataMod.calculateAccuracy();
+
+                    uiMod.updateResults(results);
+
                     if(dataMod.isTimeLeft()){
                         let timeLeft = dataMod.reduceTime();
                         uiMod.updateTimeLeft(timeLeft);
                     } else {
+                        clearInterval(timeCounter);
                         dataMod.endTest();
+                        dataMod.returnData();
+                        uiMod.fillModal(results.wpm);
+                        uiMod.showModal();
                     }  
                 }, 1000);
             }
 
             let typedWord = uiMod.getTypedWord();
             dataMod.updateCurrentWord(typedWord);
-
-            if(uiMod.spacePressed(event) || uiMod.enterPressed(event)){
+            let currentWord = dataMod.getCurrentWord();
+            uiMod.formatCurrentWord(currentWord);
+            if(currentWord.value.user.length > currentWord.value.correct.length) {
                 uiMod.emptyInput(dataMod.getLineReturn());
                 uiMod.deactivateCurrentWord();
-
                 dataMod.moveToNewWord();
                 let index = dataMod.getCurrentWordIndex();
                 uiMod.setActiveWord(index);
-                let currentWord = dataMod.getCurrentWord();
-                uiMod.formatCurrentWord(currentWord);
-
-                uiMod.scroll();
             }
+
+            if(uiMod.spacePressed(event) || uiMod.enterPressed(event)){
+                if(currentWord.value.user.length == currentWord.value.correct.length) {
+                    uiMod.emptyInput(dataMod.getLineReturn());
+                    uiMod.deactivateCurrentWord();
+                    dataMod.moveToNewWord();
+                    let index = dataMod.getCurrentWordIndex();
+                    uiMod.setActiveWord(index);
+                    let currentWord = dataMod.getCurrentWord();
+                    uiMod.formatCurrentWord(currentWord);
+                }
+                else {
+                    uiMod.formatCurrentWord(currentWord);
+                }
+                // uiMod.scroll();
+            }
+
+            uiMod.scroll();
         });
+
+        //scroll active word to middle of content box on window resize
+        window.addEventListener('resize', uiMod.scroll());
 
         //certificate download event listener
         uiMod.getDOMElements().download.addEventListener('click', function(event){
@@ -64,9 +88,6 @@ const eventsModule = (function(dataMod, uiMod, certificateMod, wordsMod){
             }
         });
     };
-
-    //scroll active word to middle of content box on window resize
-    window.addEventListener('resize', uiMod.scroll());
 
     return {
         init: function(duration, textNumber){
@@ -90,6 +111,8 @@ const eventsModule = (function(dataMod, uiMod, certificateMod, wordsMod){
             //update timeLeft in UIModule
             let timeLeft = dataMod.getTimeLeft();
             uiMod.updateTimeLeft(timeLeft);
+            let initialResults = dataMod.getInitialResults();
+            uiMod.updateResults(initialResults);
 
             //move to new word in dataModule
             dataMod.moveToNewWord();

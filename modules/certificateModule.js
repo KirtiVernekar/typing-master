@@ -5,7 +5,8 @@ const certificateModule = (function(){
             
             let button = event.target;
             let level = button.getAttribute('level');
-            let nameField = button.parentElement.previousElementSibling.children[0].children[0];
+            let nameField = button.parentElement.previousElementSibling.children[1].children[0];
+            console.log(nameField);
             let username = nameField.value;
             let date = new Date();
 
@@ -49,7 +50,7 @@ const certificateModule = (function(){
             doc.setFontSize(15);
             doc.setTextColor('#000000');
             doc.text(60, 175, 'DATE: '+ date.toLocaleDateString('en-IN'));
-            doc.text(220, 175, 'SIGNED: TYPING MASTER CO.', 'right');
+            doc.text(240, 175, 'SIGNED: TYPING MASTER CO.', 'right');
 
             doc.save("Certificate.pdf");
         }

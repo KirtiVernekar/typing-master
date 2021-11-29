@@ -113,6 +113,10 @@ const dataModule = (function(){
             appData.indicators.testEnded = true;
         },
 
+        getInitialResults: function(){
+            return appData.results;
+        },
+
         getTimeLeft: function(){
             return appData.indicators.timeLeft;
         },
@@ -133,9 +137,45 @@ const dataModule = (function(){
         },
 
         //results
-        calculateWPM: function(){},
-        calculateCPM: function(){},
-        calculateAccuracy: function(){},
+        calculateWPM: function(){
+            let oldWPM = appData.results.wpm;
+            let numOfCurrectWords = appData.results.numberOfCorrectWords;
+            if(appData.indicators.timeLeft != appData.indicators.totalTestTime){
+                appData.results.wpm = Math.round(60 * numOfCurrectWords / (appData.indicators.totalTestTime - appData.indicators.timeLeft));
+            } else {
+                appData.results.wpm = 0;
+            }
+            appData.results.wpmChange = appData.results.wpm - oldWPM;
+
+            return [appData.results.wpm, appData.results.wpmChange];
+        },
+
+        calculateCPM: function(){
+            let oldCPM = appData.results.cpm;
+            let numOfCurrectCharacters = appData.results.numberofCorrectCharacters;
+            if(appData.indicators.timeLeft != appData.indicators.totalTestTime){
+                appData.results.cpm = Math.round(60 * numOfCurrectCharacters / (appData.indicators.totalTestTime - appData.indicators.timeLeft));
+            } else {
+                appData.results.cpm = 0;
+            }
+            appData.results.cpmChange = appData.results.cpm - oldCPM;
+
+            return [appData.results.cpm, appData.results.cpmChange];
+        },
+
+        calculateAccuracy: function(){
+            let oldAccuracy = appData.results.accuracy;
+            let numOfCurrectCharacters = appData.results.numberofCorrectCharacters;
+            let numOfTestCharacters = appData.results.numberofTestCharacters;
+            if(appData.indicators.timeLeft != appData.indicators.totalTestTime){
+                appData.results.accuracy = (numOfTestCharacters != 0) ? Math.round(100 * numOfCurrectCharacters / numOfTestCharacters) : 0;
+            } else {
+                appData.results.accuracy = 0;
+            }
+            appData.results.accuracyChange = appData.results.accuracy - oldAccuracy;
+
+            return [appData.results.accuracy, appData.results.accuracyChange];
+        },
 
         getCertificateData: function(){
             return {
@@ -163,8 +203,13 @@ const dataModule = (function(){
         moveToNewWord: function(){
             if(appData.words.currentWordIndex > -1){
                 //update no. of correct words
+                if(appData.words.currentWord.value.isCorrect == true){
+                    appData.results.numberOfCorrectWords++;
+                }
                 //update no. of correct chars
+                appData.results.numberofCorrectCharacters += appData.words.currentWord.characters.totalCorrect;
                 //update no. of test chars
+                appData.results.numberofTestCharacters += appData.words.currentWord.characters.totalTest;
             }
             appData.words.currentWordIndex++;
             let newWord = new word(appData.words.currentWordIndex);

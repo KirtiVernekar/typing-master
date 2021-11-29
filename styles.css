@@ -2,8 +2,11 @@ body {
     background: url("assets/typing-bg-1920x1080.png") no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
+    backdrop-filter: blur(3px);
+    height: 100vh;
     font-family: 'Merriweather', serif;
     color: white !important;
+    overflow: hidden;
 }
 
 header {
@@ -12,7 +15,7 @@ header {
     position: sticky;
     text-align: center;
     font-family: 'Stoke', serif;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(119, 86, 86, 0.5);
     backdrop-filter: blur(2px);
 }
 
@@ -24,18 +27,21 @@ header {
     margin: 0 10px;
     color: black !important;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 1);
     border-right: none;
     border-bottom: none;
-    background-color: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(6px);
-    /* box-shadow: 0px 50px 50px rgba(71,52,22, 0.4); */
+    background-color: rgba(255, 255, 255, 0.85);
+    /* backdrop-filter: blur(4px); */
+}
+.analytics-section .card-title {
+    font-weight: 520;
 }
 
 .row {
+    display: flex;
     align-items: center;
 }
-.row h6{
+.row h6, .row h5{
     margin: 0;
     padding: 0;
 }
@@ -55,32 +61,32 @@ header {
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-right: none;
     border-bottom: none;
-    background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
 }
-
 .content-info {
     font-size: 1.6rem;
     font-weight: 300;
+}
+.content-section p:nth-of-type(1) {
+    font-size: 1.4rem;
 }
 
 .typing-section {
     margin: 20px auto;
 }
-
 .typing-section input {
     height: 60px;
     width: 80%;
     margin-bottom: 20px;
     border-radius: 10px;
     font-size: 1.4rem;
-    /* background-color: rgba(0, 0, 0, 0.3); */
-    background-color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(4px);
 }
 .typing-section input::placeholder { 
-    color: rgba(60, 60, 60, 0.9);
-    text-align: center;
+    color: rgba(60, 60, 60, 0.8);  
 }
 
 .buttons-section {
@@ -95,6 +101,11 @@ header {
     color: black !important;
 }
 
+.form-input {
+    margin-top: 10px;
+    width: 100%;
+}
+
 .active-word {
     background-color: white;
     border-radius: 5px;
@@ -103,8 +114,53 @@ header {
 }
 
 .correctCharacter {
-    color: blue;
+    color: rgba(113, 240, 166, 0.664) !important;
+    font-weight: 200;
 }
+
 .wrongCharacter {
-    color: red;
+    color: rgba(250, 60, 60, 0.85) !important;
+    font-weight: 600;
 }
+
+/* Component start */
+.timer {
+    text-align: center;
+  }
+  
+.timer > svg {
+    /* height: 120px;
+    width: 120px; */
+}
+
+.timer > svg > circle {
+fill: none;
+stroke-opacity: .3;
+stroke: #0d6efd;
+stroke-width: 10;
+transform-origin: center center;
+transform: rotate(-90deg);
+}
+
+.timer > svg > circle + circle {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    stroke-linecap: round;
+    stroke-opacity: 1;
+}
+  
+.timer.animatable > svg > circle + circle {
+transition: stroke-dashoffset .9s ease;
+}
+
+.timer > svg > text {
+fill: currentcolor;
+font-size: 2rem;
+stroke: none;
+}
+
+.timer > svg > text > tspan + tspan {
+font-size: 2rem;
+}
+  
+  

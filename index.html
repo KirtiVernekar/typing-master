@@ -38,12 +38,8 @@
                             </h5>
                             <h2 class="card-text" id="wpm"></h2>
                             <div class="row">
-                                <h6 class="col text-muted">Change</h6>
-                                <h6 class="col card-text-change" id="wpm-change">
-                                    +34%
-                                    <!-- <i class="bi bi-arrow-up"></i>
-                                    <i class="bi bi-arrow-down"></i> -->
-                                </h6>
+                                <h6 class="col opacity-75">Change</h6>
+                                <h5 class="col card-text-change" id="wpm-change"></h5>
                             </div>
                         </div>
                     </div>
@@ -55,12 +51,8 @@
                             </h5>
                             <h2 class="card-text" id="cpm"></h2>
                             <div class="row">
-                                <h6 class="col text-muted">Change</h6>
-                                <h6 class="col card-text-change" id="cpm-change">
-                                    +34%
-                                    <!-- <i class="bi bi-arrow-up"></i>
-                                    <i class="bi bi-arrow-down"></i> -->
-                                </h6>
+                                <h6 class="col opacity-75">Change</h6>
+                                <h5 class="col card-text-change" id="cpm-change"></h5>
                             </div>
                         </div>
                     </div>
@@ -73,32 +65,35 @@
                             </h5>
                             <h2 class="col card-text" id="accuracy"></h2>
                             <div class="row">
-                                <h6 class="col text-muted">Change</h6>
-                                <h6 class="col card-text-change" id="accuracy-change">
-                                    +34%
-                                    <!-- <i class="bi bi-arrow-up"></i>
-                                    <i class="bi bi-arrow-down"></i> -->
-                                </h6>
+                                <h6 class="col opacity-75">Change</h6>
+                                <h5 class="col card-text-change" id="accuracy-change"></h5>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-3">
-                <h3>Time Left</h3>
+                <!-- <h3>Time Left</h3> -->
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">
                             <i class="bi bi-stopwatch"></i>
-                            <span id="cpm">Remaining</span>
+                            <span id="cpm">Time Left</span>
                         </h5>
                         <h2 class="card-text" id="timeLeft"></h2>
+                        <!-- <div class="timer">
+                            <svg width="200" height="200" >
+                                <circle cx="50%" cy="50%" r="90"/>
+                                <circle cx="50%" cy="50%" r="90" pathLength="1"/>
+                                <text x="100" y="100" text-anchor="middle"><tspan>7</tspan></text>
+                            </svg>
+                        </div> -->
                     </div>
                 </div>
             </div>
           </div>
         <div class="content-section">
-            <p class="content-info">Use this content as reference for typing!</p>
+            <p class="content-info opacity-50">Use this content as reference for typing!</p>
             <p class="content-info" id="content"></p>
         </div>
         <div class="typing-section">
@@ -114,14 +109,14 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="certificateModalLabel">You finished your test!</h5>
+                  <h6 class="modal-title text-center" id="certificateModalLabel">Test Completed</h6>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- JS generated body -->
                     <div class="form-group">
                         <!-- <label for="name" class="sr-only">Enter your name:</label> -->
-                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        <input type="text" class="form-input" id="name" placeholder="Enter your name">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -131,8 +126,6 @@
               </div>
             </div>
           </div>
-  
-
     </div>
     
     <!-- Bootstrap Bundle with Popper -->
@@ -140,6 +133,7 @@
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="./modules/dataModule.js"></script>
     <script type="text/javascript" src="./modules/uiModule.js"></script>
     <script type="text/javascript" src="./modules/certificateModule.js"></script>
