@@ -13,7 +13,8 @@ const uiModule = (function(){
         content: document.getElementById('content'),
         activeWord: '',
         modal: $('#certificateModal'),
-        download: document.getElementById('download'),
+        downloadCertificate: document.getElementById('download-certificate'),
+        certificateButton: document.getElementById('certificate-button'),
     };
 
     const splitArray = function(string){
@@ -76,7 +77,8 @@ const uiModule = (function(){
         getDOMElements: function(){
             return {
                 textInput: DOMElements.textInput,
-                download: DOMElements.download,
+                downloadCertificate: DOMElements.downloadCertificate,
+                certificateButton: DOMElements.certificateButton,
             };
         },
 
@@ -90,9 +92,6 @@ const uiModule = (function(){
             DOMElements.wpm.innerHTML = results.wpm;
             DOMElements.cpm.innerHTML = results.cpm;
             DOMElements.accuracy.innerHTML = results.accuracy + '%';
-            // DOMElements.wpmChange.innerHTML = results.wpmChange;
-            // DOMElements.cpmChange.innerHTML = results.cpmChange;
-            // DOMElements.accuracyChange.innerHTML = results.accuracyChange + '%';
             updateChange(results.wpmChange, DOMElements.wpmChange);
             updateChange(results.cpmChange, DOMElements.cpmChange);
             updateChange(results.accuracyChange, DOMElements.accuracyChange);
@@ -108,7 +107,7 @@ const uiModule = (function(){
             
             DOMElements.formInput.insertAdjacentHTML("beforebegin", html);
 
-            DOMElements.download.setAttribute('level', level);
+            DOMElements.downloadCertificate.setAttribute('level', level);
         },
 
         showModal: function(){
@@ -190,10 +189,8 @@ const uiModule = (function(){
             let top1 = activeWord.offsetTop;
             let top2 = DOMElements.content.offsetTop;
             let difference = top1 - top2;
-            DOMElements.content.scrollTop = difference - 60;
-            // console.log("scrolldiff",difference);
-            // console.log("scroll",DOMElements.content.scrollTop);
-            // DOMElements.content.scrollTo(0, difference)
+            //scroll content of content box
+            DOMElements.content.scrollTop = difference - 42;
         },
         
     }

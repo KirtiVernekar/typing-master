@@ -73,34 +73,33 @@
                 </div>
             </div>
             <div class="col-3">
-                <!-- <h3>Time Left</h3> -->
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">
                             <i class="bi bi-stopwatch"></i>
                             <span id="cpm">Time Left</span>
                         </h5>
-                        <h2 class="card-text" id="timeLeft"></h2>
-                        <!-- <div class="timer">
+                        <!-- <h2 class="card-text" id="timeLeft"></h2> -->
+                        <div class="timer">
                             <svg width="200" height="200" >
                                 <circle cx="50%" cy="50%" r="90"/>
                                 <circle cx="50%" cy="50%" r="90" pathLength="1"/>
-                                <text x="100" y="100" text-anchor="middle"><tspan>7</tspan></text>
+                                <text x="100" y="100" text-anchor="middle"><tspan id="timeLeft"></tspan></text>
                             </svg>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
           </div>
         <div class="content-section">
             <p class="content-info opacity-50">Use this content as reference for typing!</p>
-            <p class="content-info" id="content"></p>
+            <div class="content-info" id="content"></div>
         </div>
         <div class="typing-section">
             <input type="text" placeholder="start typing..." id="input"/>
         </div>
         <div class="buttons-section">
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#certificateModal">Certificate</button>
+            <button type="button" class="btn btn-success" id="certificate-button">Certificate</button>
             <button type="button" class="btn btn-primary" onclick="location.reload()">Restart</button>
         </div>
         
@@ -121,7 +120,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="download">Download Certificate</button>
+                  <button type="button" class="btn btn-primary" id="download-certificate">Download Certificate</button>
                 </div>
               </div>
             </div>

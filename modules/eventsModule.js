@@ -79,12 +79,20 @@ const eventsModule = (function(dataMod, uiMod, certificateMod, wordsMod){
         window.addEventListener('resize', uiMod.scroll());
 
         //certificate download event listener
-        uiMod.getDOMElements().download.addEventListener('click', function(event){
+        uiMod.getDOMElements().downloadCertificate.addEventListener('click', function(event){
             if(uiMod.isNameEmpty()){
                 uiMod.flagNameInput();
             }else{
                 let certificateData = dataMod.getCertificateData();
-                certificateModule.generateCertificate(certificateData);
+                certificateMod.generateCertificate(certificateData);
+            }
+        });
+
+        uiMod.getDOMElements().certificateButton.addEventListener('click', function(event){
+            if(dataMod.testEnded()){
+                uiMod.showModal();
+            }else{
+                alert("Please complete the test!");
             }
         });
     };

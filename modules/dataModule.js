@@ -136,7 +136,7 @@ const dataModule = (function(){
             return appData.indicators.testStarted;
         },
 
-        //results
+        //results calculation
         calculateWPM: function(){
             let oldWPM = appData.results.wpm;
             let numOfCurrectWords = appData.results.numberOfCorrectWords;
