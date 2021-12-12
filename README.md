@@ -44,3 +44,8 @@
 Copyright (c) 2021 Kirti Vernekar.
 
 Usage is provided under the MIT License.
+
+
+## :wave:End Note
+
+Thanks for taking out time to read. Please give a :star: if you like this project!
