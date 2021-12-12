@@ -1,4 +1,11 @@
-<h1 align="center">Typing Master</h1>
+<h1 align="center">
+Typing Master
+<p align="center">
+
+[**Live View**](https://typing-master-kirti.netlify.app)
+
+</p>
+</h1>
 
 <p align="center">
 
