@@ -12,10 +12,14 @@ const uiModule = (function(){
         nameInput: document.getElementById('name'),
         content: document.getElementById('content'),
         activeWord: '',
+        rulesPanel: document.getElementById('rules'),
+        rulesButton: document.getElementById('rules-btn'),
+        closeButton: document.getElementById('close-btn'),
         modal: $('#certificateModal'),
         downloadCertificate: document.getElementById('download-certificate'),
         certificateButton: document.getElementById('certificate-button'),
     };
+
 
     const splitArray = function(string){
         return string.split('');
@@ -76,10 +80,20 @@ const uiModule = (function(){
     return {
         getDOMElements: function(){
             return {
+                rulesButton: DOMElements.rulesButton,
+                closeButton: DOMElements.closeButton,
                 textInput: DOMElements.textInput,
                 downloadCertificate: DOMElements.downloadCertificate,
                 certificateButton: DOMElements.certificateButton,
             };
+        },
+        
+        openRules: function() {
+            DOMElements.rulesPanel.style.visibility = "visible";
+        },
+        
+        closeRules: function() {
+            DOMElements.rulesPanel.style.visibility = "hidden";
         },
 
         //indicator

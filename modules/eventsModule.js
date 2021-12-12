@@ -1,5 +1,6 @@
 const eventsModule = (function(dataMod, uiMod, certificateMod, wordsMod){
     const addEventListeners = function(){
+    
         //enter click event listener
         uiMod.getDOMElements().textInput.addEventListener('keydown', function(event){
             if(dataMod.testEnded()) { return; }
@@ -33,11 +34,10 @@ const eventsModule = (function(dataMod, uiMod, certificateMod, wordsMod){
 
                     if(dataMod.isTimeLeft()){
                         let timeLeft = dataMod.reduceTime();
-                        uiMod.updateTimeLeft(timeLeft);
+                        uiMod.updateTimeLeft(timeLeft); 
                     } else {
                         clearInterval(timeCounter);
                         dataMod.endTest();
-                        dataMod.returnData();
                         uiMod.fillModal(results.wpm);
                         uiMod.showModal();
                     }  
@@ -78,6 +78,14 @@ const eventsModule = (function(dataMod, uiMod, certificateMod, wordsMod){
         //scroll active word to middle of content box on window resize
         window.addEventListener('resize', uiMod.scroll());
 
+        //toggle rules panel
+        uiMod.getDOMElements().rulesButton.addEventListener('click', function(event){
+            uiMod.openRules();
+        });
+        uiMod.getDOMElements().closeButton.addEventListener('click', function(event){
+            uiMod.closeRules();
+        });
+
         //certificate download event listener
         uiMod.getDOMElements().downloadCertificate.addEventListener('click', function(event){
             if(uiMod.isNameEmpty()){
@@ -102,36 +110,36 @@ const eventsModule = (function(dataMod, uiMod, certificateMod, wordsMod){
 
             let words = wordsMod.getWords(textNumber);
 
-            //fill the list of test words in dataModule
+            //fill the list of test words
             dataMod.fillListOfTestWords(textNumber, words);
 
-            //fill the list of test words in UIModule
+            //fill the list of test words
             let testWords = dataMod.getListOfTestWords();
             let lineReturn = dataMod.getLineReturn();
             uiMod.fillContent(testWords, lineReturn);
 
-            //set totalTestTime in dataModule
+            //set totalTestTime
             dataMod.setTestTime(duration);
 
-            //update timeLeft in dataModule
+            //update timeLeft
             dataMod.initializeTimeLeft();
 
-            //update timeLeft in UIModule
+            //update timeLeft
             let timeLeft = dataMod.getTimeLeft();
             uiMod.updateTimeLeft(timeLeft);
             let initialResults = dataMod.getInitialResults();
             uiMod.updateResults(initialResults);
 
-            //move to new word in dataModule
+            //move to new word
             dataMod.moveToNewWord();
 
-            //set activeWord and format it in UIModule
+            //set activeWord and format it
             let index = dataMod.getCurrentWordIndex();
             uiMod.setActiveWord(index);
             let currentWord = dataMod.getCurrentWord();
             uiMod.formatCurrentWord(currentWord);
 
-            //focus on input in UIModule
+            //focus on input
             uiMod.inputFocus();
 
             addEventListeners();

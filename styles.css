@@ -18,10 +18,49 @@ header {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(2px);
 }
+header button {
+    border: none;
+    background-color: transparent;
+    position: fixed;
+    top: 60px;
+    left: 5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
 
 .container {
-    margin: auto 80px;
+    margin: auto;
 }
+
+.rules-section {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    color: black;
+    overflow-x: hidden;
+    transition: 0.2s ease-in;
+    padding: 20px 15px;
+    text-align: left;
+    visibility: hidden;
+}
+.rules-section .rules-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rules-section ol {
+    font-size: 0.9rem;
+}
+.rules-section #close-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    font-size: 30px;
+  }
 
 .analytics-section .card {
     margin: 0 10px;
@@ -127,23 +166,25 @@ header {
     font-weight: 600;
 }
 
-/* Component start */
+/* Countdown Timer */
 .timer {
-    text-align: center;
-  }
+    margin-top: 10px;
+    /* width: 200px;
+    height: 200px; */
+}
   
 .timer > svg {
-    /* height: 120px;
-    width: 120px; */
+    width: 200px;
+    height: 200px;
 }
 
 .timer > svg > circle {
-fill: none;
-stroke-opacity: .3;
-stroke: #0d6efd;
-stroke-width: 10;
-transform-origin: center center;
-transform: rotate(-90deg);
+    fill: none;
+    stroke-opacity: 0.3;
+    stroke: #0d6efd;
+    stroke-width: 10;
+    transform-origin: center center;
+    transform: rotate(-90deg);
 }
 
 .timer > svg > circle + circle {
@@ -152,19 +193,30 @@ transform: rotate(-90deg);
     stroke-linecap: round;
     stroke-opacity: 1;
 }
-  
+
 .timer.animatable > svg > circle + circle {
     transition: stroke-dashoffset 0.3s ease;
 }
 
 .timer > svg > text {
-fill: currentcolor;
-font-size: 2rem;
-stroke: none;
+    font-size: 2rem;
 }
 
-.timer > svg > text > tspan + tspan {
-font-size: 2rem;
+.timer > svg > text + text {
+    font-size: 0.8rem;
 }
-  
-  
+
+
+@media screen and (max-width: 1200px){
+    .analytics-section .card-body {
+        padding: 0.7rem;
+    }
+
+    .timer > svg{
+        width: 175px;
+        height: 175px;
+    }
+    .timer > svg > circle {
+        r: 75;
+    }
+}

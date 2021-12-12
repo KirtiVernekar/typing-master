@@ -21,10 +21,24 @@
     <header>
         <h1>Typing Master</h1>
         <h6>Test your typing speed!</h6>
+        <button id="rules-btn" onclick="openRules()">Read rules!</button>
     </header>
     <div class="container text-center">
-        <div class="rules-section">  <!-- toggle sidebar -->
-
+        <div class="rules-section" id="rules">  <!-- toggle sidebar -->
+            <div class="rules-header">
+                <h4>How to attempt the test?</h4>
+                <button id="close-btn" onclick="closeRules()">&times;</button>
+            </div>
+            <ol>
+                <li>Simply start typing the given content in the typing box.</li>
+                <li>The test duration is 60 seconds. You will see the timer running when you start typing.</li>
+                <li>The results panel will show your performance in WPM (words per minute), CPM (clicks per minute) and Accuracy. You can also check the change in these metrics as you type.</li>
+                <li>The word currently typed will be highlighted with white background.</li>
+                <li>As you proceed, correctly typed characters are colored green and wrong ones are colored red.</li>
+                <li>Note that the content is case-sensitive and your space/enter keys are also counted.</li>
+                <li>The content will scroll down automatically as you proceed.</li>
+                <li>When the test is completed, you may download the PDF certificate declaring your typing speed and level of expertise - Noob, Specialist or Champion.</li>
+            </ol>
         </div>
         <div class="row analytics-section" >
             <div class="col-9">
@@ -80,11 +94,12 @@
                             <span id="cpm">Time Left</span>
                         </h5>
                         <!-- <h2 class="card-text" id="timeLeft"></h2> -->
-                        <div class="timer">
-                            <svg width="200" height="200" >
+                        <div class="timer animatable">
+                            <svg>
                                 <circle cx="50%" cy="50%" r="90"/>
-                                <circle cx="50%" cy="50%" r="90" pathLength="1"/>
+                                <circle cx="50%" cy="50%" r="90" pathLength="1" />
                                 <text x="100" y="100" text-anchor="middle"><tspan id="timeLeft"></tspan></text>
+                                <text x="100" y="120" text-anchor="middle">seconds</text>
                             </svg>
                         </div>
                     </div>
