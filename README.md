@@ -1,7 +1,6 @@
 <h1 align="center">Typing Master</h1>
 
-<hr />
-<a href="https://typing-master-kirti.netlify.app" target="_blank">Live View</a>
+<a href="https://typing-master-kirti.netlify.app" target="_blank" align="center">Live View</a>
 <hr />
 <div align="center" autoplay={true} muted={true} loop={true} object-fit="cover">
 
@@ -16,7 +15,9 @@
 ## 💡Features
 
 :heavy_check_mark: Modular design pattern
+
 :heavy_check_mark: Glassmorphism
+
 :heavy_check_mark: Customized PDF file download
 
 ## ⛏️Built with
@@ -35,4 +36,5 @@
 ## :page_facing_up:License
 
 Copyright (c) 2021 Kirti Vernekar.
+
 Usage is provided under the MIT License.
