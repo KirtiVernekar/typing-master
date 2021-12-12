@@ -1,9 +1,15 @@
 <h1 align="center">Typing Master</h1>
 
-<p align="center">[**Live View**](https://typing-master-kirti.netlify.app)</p>
+<p align="center">
+
+[**Live View**](https://typing-master-kirti.netlify.app)
+
+</p>
 <hr />
 <div align="center" autoplay={true} muted={true} loop={true} object-fit="cover">
+
 ![Project Demo Gif](https://media.giphy.com/media/Y6TaMwhqy7MtJF7W1n/giphy.gif)
+
 </div>
 
 <hr />
