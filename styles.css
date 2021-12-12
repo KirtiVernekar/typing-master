@@ -3,6 +3,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     height: 100vh;
     font-family: 'Merriweather', serif;
     color: white !important;
@@ -16,7 +17,8 @@ header {
     text-align: center;
     font-family: 'Stoke', serif;
     background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
 header button {
     border: none;
@@ -100,6 +102,7 @@ header button {
     border-bottom: none;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 .content-info {
     font-size: 1.6rem;
@@ -126,6 +129,7 @@ header button {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 .typing-section input::placeholder { 
     color: rgba(60, 60, 60, 0.8);  

@@ -17,9 +17,11 @@
 
 :heavy_check_mark: Modular design pattern
 
-:heavy_check_mark: Glassmorphism
+:heavy_check_mark: Complex DOM manipulation
 
 :heavy_check_mark: Customized PDF file download
+
+:heavy_check_mark: Elegant and accesible UI
 
 
 ## :hammer:Built with
