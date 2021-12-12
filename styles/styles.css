@@ -1,5 +1,5 @@
 body {
-    background: url("assets/typing-bg-720x480.png") no-repeat center center;
+    background: url("../assets/typing-bg-1080x720.png") no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(3px);
