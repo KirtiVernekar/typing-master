@@ -1,17 +1,6 @@
-<h1 align="center">
-Typing Master
-<p align="center">
+<h1 align="center">Typing Master</h1>
 
-[**Live View**](https://typing-master-kirti.netlify.app)
-
-</p>
-</h1>
-
-<p align="center">
-
-[**Live View**](https://typing-master-kirti.netlify.app)
-
-</p>
+<p align="center"><a href="https://typing-master-kirti.netlify.app" target="_blank">Live View</a></p>
 <hr />
 <div align="center" autoplay={true} muted={true} loop={true} object-fit="cover">
 
